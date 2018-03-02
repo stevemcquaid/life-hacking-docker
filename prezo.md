@@ -110,16 +110,23 @@ A pattern that is fairly new to me, but I am beginning to develop is: encrypted 
     #### Purpose
     View rendered output of github-flavor markdown live on local computer.
     #### Challenges
-    Be portable across Mac/Linux. 
+    Be portable across Mac/Linux. Handle live refreshes in browser. Rate limiting. Be accessible from any shell context 
     #### Learnings/Solutions
+    Its easy to alias shell scripts in bash profile. Make becomes a wrapper. Have a common binding for languages to make life easy.
 * otp/gauth
     #### Purpose
+    Be able to backup/access/use 2FA codes on a computer
     #### Challenges
+    Security of configuration codes. golang language bindings
     #### Learnings/Solutions
+    Veracrypt allows in-memory storage of sensitive information with a common mounting point. Allows program to treat configs like regular files, but be securely stored at rest.
 * grypt
     #### Purpose
+    More secure in memory storage of secrets
     #### Challenges
+    Codes should be accessible as files to other programs. Should reencrypt when the program exits.
     #### Learnings/Solutions
+    sigterm pattern within golang program using docker's kill signal
 * sigterm
     #### Purpose
     #### Challenges
