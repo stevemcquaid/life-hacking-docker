@@ -68,70 +68,70 @@ Document -->
 
 # Examples:
 
-* weechat-docker-otr
+### weechat-docker-otr
     #### Purpose
     Be able to access all chat platforms from the command line. Be able to communicate with only a terminal
     #### Challenges
     Dependency hell. Learning weechat commands. Setup of accounts/config file & state managements
     #### Learnings/Solutions
     Break out apt installs. Encrypt config files. Built own documentation if it would take too long to automate your own solution.
-* internet-speedtest-docker
+### internet-speedtest-docker
     #### Purpose
     Monitor the real-time speed from ISP. Graph it to know when stuff breaks and when speeds slow.
     #### Challenges
     Converting compose to k8s. Running persistantly somewhere in local network. Exposing the docker port beyond minikube
     #### Learnings/Solutions
     Have templates. Have a dev machine run kubernetes. Use haproxy in docker container to redirect to the minikube port
-* haproxy
+### haproxy
     #### Purpose
     Be able to redirect traffic at will. (Reverse Proxy)
     #### Challenges
     Forward traffic to a different ip/port, Easily mapping to/from ports in a simple manner
     #### Learnings/Solutions
     Use haproxy in a docker container. Use simple config file
-* grip
+### grip
     #### Purpose
     View rendered output of github-flavor markdown live on local computer.
     #### Challenges
     Be portable across Mac/Linux. Handle live refreshes in browser. Rate limiting. Be accessible from any shell context 
     #### Learnings/Solutions
     Its easy to alias shell scripts in bash profile. Make becomes a wrapper. Have a common binding for languages to make life easy.
-* otp/gauth
+### otp/gauth
     #### Purpose
     Be able to backup/access/use 2FA codes on a computer
     #### Challenges
     Security of configuration codes. golang language bindings
     #### Learnings/Solutions
     Veracrypt allows in-memory storage of sensitive information with a common mounting point. Allows program to treat configs like regular files, but be securely stored at rest.
-* grypt
+### grypt
     #### Purpose
     More secure in memory storage of secrets
     #### Challenges
     Codes should be accessible as files to other programs. Should reencrypt when the program exits.
     #### Learnings/Solutions
     sigterm pattern within golang program using docker's kill signal
-* sigterm
+### sigterm
     #### Purpose
     Create a starter pattern to allow cleanup when a SIGTERM is given in golang
     #### Challenges
     Assure sigterm gets handled correctly before being killed
     #### Learnings/Solutions
     Create sigterm handler - make sure docker send SIGTERM in the runtime environment. Document code and provide clean bindings for use.
-* toolbox
+### toolbox
     #### Purpose
     Create a utility debugger for poking around in unfamiliar environments. Often my starter Dockerfile on top of ubuntu:16.04
     #### Challenges
     Installing a bunch of packages and assuring none collide
     #### Learnings/Solutions
     Its not intended for production so there is no need to do oneliners.  Keep a dockerfile cache active for these massive containers.
-* err-openstack
+### err-openstack
     #### Purpose
     Automate 
     #### Challenges
     Picking the right bot framework. Needs to communicate with slack but also openstack apis in a friendly language. Auth is hard. Also for development, should be able to run with new code and still work. Python should not have to install requirements every run.
     #### Learnings/Solutions
     Provide access to user on team (backed by Active Directory). Would want to create formal api in future and leave the bot to just handle Auth and slack parsing. Add requirements into container before code. Then dockerfile will be rebuild only when requirements change.
-* pdf-title-rename
+### pdf-title-rename
     #### Purpose
     I hoard ebooks. Often times the filename is mislabeled.  Have an easy way to rename large archives of ebooks
     #### Challenges
