@@ -30,6 +30,7 @@ So much of what we do day to day can be automated.
     Projects
     Narrative/Learnings
         Use bash when you know commands-> ubuntu
+            - 
         Write code when you dont -> have bindings ready
     Pre Built
         isp test
