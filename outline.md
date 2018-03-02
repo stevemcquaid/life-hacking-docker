@@ -26,6 +26,22 @@ So much of what we do day to day can be automated.
     Quick to build/use/modify
     Easy to understand
 
+# Basic Process
+    Write code to do something
+    Get a shell in ubuntu container, install the stuff that you need.
+    Convert to dockerfile
+    Wrap with utility scripts
+
+# Learnings
+    Not all networks are fast - long time to compile, slow iterations
+    Production and development are different (dont multiline apt-get installs)
+    Find base images for your commonly used languages, reuse patterns that work well
+    Have common structure & boiler plate ready to go
+    Polishing cli programs is complicated
+        - common argparse framework
+    Patterns for sensitive information
+        - veracrypt
+
 # Examples:
     Projects
     Narrative/Learnings
