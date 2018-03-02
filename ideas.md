@@ -10,8 +10,7 @@
   - [x] haproxy-redirect
   - [x] grip/md reader
   - [x] one time password/gauth
-  
-  
+
 ## Ideas todo
   * dropbox get - download file
   * dropbox ls - file viewer
