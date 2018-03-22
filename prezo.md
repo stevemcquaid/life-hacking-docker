@@ -138,12 +138,27 @@ Document -->
     Find the right solution prebuilt. Then Dockerize it. Create bindings to pass in files to docker container.
     #### Learnings/Solutions
     Using someone else's work is awesome!
-* pdf-unlocker
+### pdf-unlocker
     #### Purpose
     Need to sign document, but it requires Adobe Software to edit.
     #### Challenges
     Volume mounting. Bindings to enable future use easily
     #### Learnings/Solutions
+    Using someone else's work is awesome! Streamlining the "Dockerization" process helps to save time!
+### gaws
+    #### Purpose
+    Be able to quickly run a docker container exposed to the internet (ec2)
+    #### Challenges
+    You need to setup AWS IAM keys ahead of time, no API to allow UN/PS -> creds.
+    #### Learnings/Solutions
+    This was a challenge is restraint from adding everything as a CLI flag. Keep it simple, write clean code. Make reasonable assumptions (didnt need vpc or ami_id discovery to accomplish the task)
+### vim-ide
+    #### Purpose
+    Be able to have the same full-featured development environment on any machine, anywhere in the world.
+    #### Challenges
+    I'm a nano user (GASP). I both needed to learn vim and the packaging around it (pathogen/vundle). There are some nearly complete prebuilt containers, but I needed to simplify to understand it. Also, its rare that I use a single language in a single day. I need support for python and golang, and a foundation to add support for anything else that comes up. (JSFOTW)
+    #### Learnings/Solutions
+    Use what works, (ubuntu) rather than a fancy alpine image that you can interact with and learn from. Be agile (make something that works, then iterate). Since this is a high-interaction container, worry less about the glue/wrappers around the container, and focus on getting the container functional. Dogfood. Build the container in the container... use vim to create the dockerfile and vim bindings as a mounted src volume.
 
 ---
 
