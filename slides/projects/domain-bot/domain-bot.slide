@@ -1,0 +1,24 @@
+Domain Availablity Checker
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+* Domain Availablity Checker
+Know if expiring domains are available for purchase
+.link https://github.com/stevemcquaid/domain-bot
+
+*Function:*
+- Scrape websites for good domains, then check availability and print.
+*Challenges:*
+- No API clients for endpoint
+- Python global variables have local scope
+- Parallel API Requests
+- Committing creds
+*Learnings:*
+- `.dockerignore` is amazing
+- `docker --env-file` is even better
+- Don't argparse in v1, use helper functions
+
+* Speedtest Dashboard
+.image domain-bot.png

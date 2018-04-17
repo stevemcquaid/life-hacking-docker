@@ -1,0 +1,4 @@
+package: github.com/stevemcquaid/indy-code-k8s-workshop
+import:
+    - package: github.com/cloudflare/indy-code-k8s-workshop
+

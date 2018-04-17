@@ -1,0 +1,25 @@
+Internet Speedtest Dashboard
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+* Internet Speedtest Dashboard
+Monitor the real-time speed from ISP. Graph it to know when stuff breaks and when speeds slow.
+.link https://github.com/stevemcquaid/internet-speedtest-docker github.com/stevemcquaid/internet-speedtest-docker
+
+*Function:*
+- Dockerize existing project, add kubernetes deployment objects + 
+*Challenges:*
+- Converting compose to k8s resource file
+- Running persistantly on local network
+- Exposing the docker port behind minikube
+*Learnings:*
+- Have templates
+- Have a dev machine for project server
+- Use dockerized haproxy to redirect to minikube port
+
+: Eventually Ill replace minikube with regular k8s cluster
+
+* Speedtest Dashboard
+.image domain-bot.png

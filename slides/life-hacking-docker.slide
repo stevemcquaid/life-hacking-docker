@@ -1,0 +1,245 @@
+Life-Hacking with Containers: Automate away your problems
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+: I am Steve McQuaid. I am a senior software engineer specializing in infrastructure engineering, specifically Kubernetes. Last year my wife and I relocated from the San Francisco Bay Area up to Carmel. More recently, I am actually taking the time to find the right new opportunity. So if you enjoy todays talk, tell your boss!
+: And when I am not coding I enjoy whisky, running, golfing, and DJing. 
+
+: Like many of you, I enjoy looking for ways to make my life easier + more efficient 
+: In this talk I'd love to share some of the problems I've faced, from editing markdown to dealing with slow ISPs, and the lessons I've learned to make my life easier by dockerizing everything in sight
+
+
+* Agenda
+- Personal Project Philosophy
+- Learnings
+- Discuss Projects
+: Some rules that I follow when building hacks
+: The challenges and solutions that I found to them
+: Discuss various projects
+
+
+* Why Containers?
+- Save time
+- It is FUN!
+- Because we can
+.image images/docker-bubbles.png _ 500
+: Why would we want to dockerize and automate things?
+: We want to be able to quickly do something that was previously laborious.
+: Building things is enjoyable.
+: Why not exercise our abilities and creativity
+
+
+* Personal Project Philosophy
+- Portable across environments
+- Easy to understand
+- Quick to build/use/modify
+- Assume docker, bash, [make]
+.image images/shebang.jpg _ 200
+: The main points I try to keep in mind while developing small projects for utility use are: 
+: Portability - We want to be able to run anywhere - on a new machine easily. 
+: Easily understood via highly commented code + documentation. Maintained by me. Make life easy. Favor legibility + code clarity   vs   efficiency + elegant oneliners. 
+: Assume machines have docker & bash (or similar enough that we can patch things). Recently using make as a CLI for help commands. Avoiding docker flags.
+: Finally, goal = if we need to change something in the future, it should be easy to do so.
+
+
+* Requirements
+- Utilze Convention
+- Functional
+- Portable
+- Modifiable
+- Clear Logic
+.image images/docker-container.jpg _ 300
+: Given those principles, I use this mental checklist to make sure Im not creating a hassle for future me. 
+: From an Infrastructure perspective, challenge = bootstrapping/dependency hell
+: Docker specifically provides us with portability, and there you should be able to create something immediately functional out of the box.
+
+
+* Basic Process
+- Write the code to do task
+- Get a shell in ubuntu container, install deps that you need
+- Convert to Dockerfile
+- Wrap with utility scripts
+- Create Documentation
+.image images/ubuntu.svg _ 200
+: I usually begin by writing the code to do the task that I want
+: Then if the libraries I'm using need some exotic underlying libs, like imagemagik, or some C extentions, I will get a shel in ubuntu container and install those.
+: Shove commands into Dockerfile
+: Wrap with some utility scripts
+: Create documentation to remember how to use it when I come back to it
+
+
+* Projects
+
+: We interactive discussion in a few minutes since the life-hacks are probably what you are all interested in. I do want to first discuss some of the learnings that can apply to your projects.
+
+
+* Learnings - Part 1
+- Iteration Time == fn(Compilation Time)
+- Optimize Containers in Production
+- Find base images for your commonly used languages
+- Reuse patterns that work well
+- Starter Code
+- Having code in place helps productivity 
+- Make + Bash Scripts 
+- Allow common interfaces to cli tools written in different languages on different platforms. Can include in bash_profile easily.
+
+@ TODO:Fix this
+
+: While the last bit was obvious, some things I've run into after doing this for a few dozen projects are:
+: Image bloat is a real thing. (OK to use ubuntu + and multiline apt installs for development)
+
+: I will typically start with ubuntu 16 image since its pretty universal of the major distros, But whenever possible I'll use a language specific alpine image to cut down on bloat or better yet, put the binary atop a SCRATCH base image)
+
+
+: For utility scripts its ok to favor non-optimal solutions such as splitting apt-get installs to multiple lines. Avoids dependency hell occassionally.
+: I mentioned language specific alpine images. Having language specific boiler plate code saves A TON of time and can really speed up dev (python caching requirements).
+: Have common structure & a way to avoid committing keys to github is always a good thing. I am continuing to work two different approaches using veracrypt and a home brewed encryption utility.
+
+
+* Learnings - Part 2
+- Comment Code
+- Document everything via README.md + `make help`
+- Functional: `docker pull; docker run`
+- Prebuilt argparse framework saves time
+- Prebuilt pattern for sensitive information saves time
+- Encryption is good
+
+
+* Dockerfile Best Practices
+Unix processes not lightweight Virtual Machines
+- application + dependencies = image
+- Runtime environment (cgroups, namespaces, env vars)
+.image images/container.png
+
+* Dockerfile Best Practices
+Building container images.
+.code snippets/large-dockerfile
+Total size: 500MB
+
+* Dockerfile Best Practicesners
+Building container images.
+- Build applications in a dedicated build container or CI
+- Ship build artifacts, not build environments
+Remix
+.code snippets/small-dockerfile
+Total size: 4MB
+
+
+* Projects
+: Now for the fun part. I want the rest of the talk to be extremely interactive, so feel free to speak up and ask questions, clarifications, suggest improvements, or share your experiences. Or if enough people want, I can test our luck with the demo gods to run stuff live.
+
+* Projects
+- [[projects/domain-bot/domain-bot.slide#2][Domain Availablity Checker]]
+- [[projects/internet-speedtest-docker/internet-speedtest-docker.slide#2][Internet Speedtest Dashboard]]
+
+
+
+- Markdown Viewer (Realtime, Github Formatting)
+- Local Reverse Proxy/Port Redirection
+- Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
+- Utility debugger/”Toolbox”
+- Unlock Protected PDF (avoid forcibly using Adobe Software)
+- DynDNS on CloudFlare (in Golang)
+- 2FA/Gauth One Time Passcodes
+- VIM IDE with Golang Autocompletion
+- Config File In-Memory Decryption Utility
+- Code Pattern to Cleanup after SIGTERM
+- DynDNS on CloudFlare (in Golang)
+- GoPresent/This slide deck
+
+ 
+
+
+
+
+
+
+
+
+
+
+* Projects
+*Purpose:*
+*Challenges:*
+*Learnings:*
+
+### haproxy
+    #### Purpose
+    Be able to redirect traffic at will. (Reverse Proxy)
+    #### Challenges
+    Forward traffic to a different ip/port, Easily mapping to/from ports in a simple manner
+    #### Learnings/Solutions
+    Use haproxy in a docker container. Use simple config file
+### grip
+    #### Purpose
+    View rendered output of github-flavor markdown live on local computer.
+    #### Challenges
+    Be portable across Mac/Linux. Handle live refreshes in browser. Rate limiting. Be accessible from any shell context 
+    #### Learnings/Solutions
+    Its easy to alias shell scripts in bash profile. Make becomes a wrapper. Have a common binding for languages to make life easy.
+### otp/gauth
+    #### Purpose
+    Be able to backup/access/use 2FA codes on a computer
+    #### Challenges
+    Security of configuration codes. golang language bindings
+    #### Learnings/Solutions
+    Veracrypt allows in-memory storage of sensitive information with a common mounting point. Allows program to treat configs like regular files, but be securely stored at rest.
+### grypt
+    #### Purpose
+    More secure in memory storage of secrets
+    #### Challenges
+    Codes should be accessible as files to other programs. Should reencrypt when the program exits.
+    #### Learnings/Solutions
+    sigterm pattern within golang program using docker's kill signal
+### sigterm
+    #### Purpose
+    Create a starter pattern to allow cleanup when a SIGTERM is given in golang
+    #### Challenges
+    Assure sigterm gets handled correctly before being killed
+    #### Learnings/Solutions
+    Create sigterm handler - make sure docker send SIGTERM in the runtime environment. Document code and provide clean bindings for use.
+### toolbox
+    #### Purpose
+    Create a utility debugger for poking around in unfamiliar environments. Often my starter Dockerfile on top of ubuntu:16.04
+    #### Challenges
+    Installing a bunch of packages and assuring none collide
+    #### Learnings/Solutions
+    Its not intended for production so there is no need to do oneliners.  Keep a dockerfile cache active for these massive containers.
+### err-openstack
+    #### Purpose
+    Automate 
+    #### Challenges
+    Picking the right bot framework. Needs to communicate with slack but also openstack apis in a friendly language. Auth is hard. Also for development, should be able to run with new code and still work. Python should not have to install requirements every run.
+    #### Learnings/Solutions
+    Provide access to user on team (backed by Active Directory). Would want to create formal api in future and leave the bot to just handle Auth and slack parsing. Add requirements into container before code. Then dockerfile will be rebuild only when requirements change.
+### pdf-title-rename
+    #### Purpose
+    I hoard ebooks. Often times the filename is mislabeled.  Have an easy way to rename large archives of ebooks
+    #### Challenges
+    Find the right solution prebuilt. Then Dockerize it. Create bindings to pass in files to docker container.
+    #### Learnings/Solutions
+    Using someone else's work is awesome!
+### pdf-unlocker
+    #### Purpose
+    Need to sign document, but it requires Adobe Software to edit.
+    #### Challenges
+    Volume mounting. Bindings to enable future use easily
+    #### Learnings/Solutions
+    Using someone else's work is awesome! Streamlining the "Dockerization" process helps to save time!
+### gaws
+    #### Purpose
+    Be able to quickly run a docker container exposed to the internet (ec2)
+    #### Challenges
+    You need to setup AWS IAM keys ahead of time, no API to allow UN/PS -> creds.
+    #### Learnings/Solutions
+    This was a challenge is restraint from adding everything as a CLI flag. Keep it simple, write clean code. Make reasonable assumptions (didnt need vpc or ami_id discovery to accomplish the task)
+### vim-ide
+    #### Purpose
+    Be able to have the same full-featured development environment on any machine, anywhere in the world.
+    #### Challenges
+    I'm a nano user (GASP). I both needed to learn vim and the packaging around it (pathogen/vundle). There are some nearly complete prebuilt containers, but I needed to simplify to understand it. Also, its rare that I use a single language in a single day. I need support for python and golang, and a foundation to add support for anything else that comes up. (JSFOTW)
+    #### Learnings/Solutions
+    Use what works, (ubuntu) rather than a fancy alpine image that you can interact with and learn from. Be agile (make something that works, then iterate). Since this is a high-interaction container, worry less about the glue/wrappers around the container, and focus on getting the container functional. Dogfood. Build the container in the container... use vim to create the dockerfile and vim bindings as a mounted src volume.
+
