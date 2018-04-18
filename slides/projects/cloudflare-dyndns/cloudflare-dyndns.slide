@@ -11,15 +11,16 @@ https://github.com/stevemcquaid
 Update DNS record with current public IP address. Scripts built in Golang
 .link https://github.com/stevemcquaid/cloudflare-dyndns github.com/stevemcquaid/cloudflare-dyndns 
 
-*Function:*
+*Tasks:*
 - Discover current public IP.
 - Delete, Update, Create Cloudflare DNS records
 *Challenges:*
 - Building a Golang optimized dockerfile
 - Dealing with secrets
 *Learnings:*
-- Use Docker's `golang:1.8` public image to build binary. Inject binary into empty image.
-: I wanted to try out an optimized image for this one since previously I was basically compiling at runtime. Which is pretty bad. The makefile ended up being super complicated so I hope to remove that complexity in the future.
+- Use `golang:1.8` public image to build binary, then inject binary into empty image
+
+: I wanted to try out an optimized image for this one since previously I was  compiling in the same image as I ship. Which is pretty bad. The makefile ended up being super complicated so I hope to remove that complexity in the future.
 
 * DynDNS on CloudFlare (in Golang)
 .image cloudflare-dyndns.png _ 800

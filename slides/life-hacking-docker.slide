@@ -36,7 +36,7 @@ https://github.com/stevemcquaid
 - Easy to understand
 - Quick to build/use/modify
 - Assume docker, bash, [make]
-.image images/shebang.jpg _ 200
+.image images/dockerize.jpg _ 400
 : The main points I try to keep in mind while developing small projects for utility use are: 
 : Portability - We want to be able to run anywhere - on a new machine easily. 
 : Easily understood via highly commented code + documentation. Maintained by me. Make life easy. Favor legibility + code clarity   vs   efficiency + elegant oneliners. 
@@ -49,74 +49,85 @@ https://github.com/stevemcquaid
 - Functional
 - Portable
 - Modifiable
-- Clear Logic
+- Clear >= Concise Logic
 .image images/docker-container.jpg _ 300
 : Given those principles, I use this mental checklist to make sure Im not creating a hassle for future me. 
 : From an Infrastructure perspective, challenge = bootstrapping/dependency hell
-: Docker specifically provides us with portability, and there you should be able to create something immediately functional out of the box.
+: Docker specifically provides us with portability, and therefore you should be able to create something immediately functional out of the box.
 
 
 * Basic Process
 - Write the code to do task
-- Get a shell in ubuntu container, install deps that you need
+- If you need deps then get a shell in ubuntu container, install what you need
 - Convert to Dockerfile
 - Wrap with utility scripts
 - Create Documentation
 .image images/ubuntu.svg _ 200
 : I usually begin by writing the code to do the task that I want
-: Then if the libraries I'm using need some exotic underlying libs, like imagemagik, or some C extentions, I will get a shel in ubuntu container and install those.
-: Shove commands into Dockerfile
+: Then if the libraries I'm using need some exotic underlying libs, like imagemagik, or some C extentions, I will get a shell in ubuntu container and install those.
+: Put the commands I just ran manually to create the image, into the Dockerfile
 : Wrap with some utility scripts
 : Create documentation to remember how to use it when I come back to it
 
 
 * Projects
 
-: We interactive discussion in a few minutes since the life-hacks are probably what you are all interested in. I do want to first discuss some of the learnings that can apply to your projects.
+: We will have interactive discussion in a few minutes since the life-hacks are probably what you are all interested in. I do want to first discuss some of the learnings that can apply to your projects.
 
 
 * Learnings - Part 1
 - Iteration Time == fn(Compilation Time)
 - Optimize Containers in Production
-- Find base images for your commonly used languages
 - Reuse patterns that work well
 - Starter Code
-- Having code in place helps productivity 
 - Make + Bash Scripts 
 - Allow common interfaces to cli tools written in different languages on different platforms. Can include in bash_profile easily.
-
-@ TODO:Fix this
-
-: While the last bit was obvious, some things I've run into after doing this for a few dozen projects are:
-: Image bloat is a real thing. (OK to use ubuntu + and multiline apt installs for development)
-
-: I will typically start with ubuntu 16 image since its pretty universal of the major distros, But whenever possible I'll use a language specific alpine image to cut down on bloat or better yet, put the binary atop a SCRATCH base image)
-
-
-: For utility scripts its ok to favor non-optimal solutions such as splitting apt-get installs to multiple lines. Avoids dependency hell occassionally.
-: I mentioned language specific alpine images. Having language specific boiler plate code saves A TON of time and can really speed up dev (python caching requirements).
-: Have common structure & a way to avoid committing keys to github is always a good thing. I am continuing to work two different approaches using veracrypt and a home brewed encryption utility.
+: Iteration is a function of compilation time
+: So either have easy way to iterate, or install the deps locally, then convert to dockerfile.
+: In python this means caching your dependencies to speed up builds
+: In golang this means vendoring your deps via glide.yaml, or dev'ing locally
+: Dont worry about optimizing containers for your hacks, worry about making them first. This took my OCD-self some time to realize. OK to use ubuntu + and multiline apt installs for development
+: Find patterns that work well. Such as creating base images for your commonly used languages. And copy them for the future.
+: Similarly, have starter code and use it.
+: Wrap your commonly run commands to make life easy. I use bash and make to get small docker commands + flags
+: Use patterns across languages. If your methodologies are similar itll be easy to switch languages for a specific project.
+: Also, one pattern I use really helps me to have easy access from terminal on my computer. I use `make run` to exec a bash script in the vast majority of my projects. This makes it really easy to make a `bash_profile` alias to almost any project.
 
 
 * Learnings - Part 2
 - Comment Code
-- Document everything via README.md + `make help`
+- Document everything via README.md + `make help` 
 - Functional: `docker pull; docker run`
 - Prebuilt argparse framework saves time
 - Prebuilt pattern for sensitive information saves time
 - Encryption is good
+: Comments are good
+: Documentation is good
+: Try and leave your pushed docker images in functional condition. It makes life much better.
+: I mentioned language specific docker images. Having language specific boiler plate code saves A TON of time and can really speed up dev 
+: Have common structure & a way to avoid committing keys to github is always a good thing. I am continuing to work two different approaches using veracrypt and a home brewed encryption utility.
+
 
 
 * Dockerfile Best Practices
 Unix processes not lightweight Virtual Machines
-- application + dependencies = image
-- Runtime environment (cgroups, namespaces, env vars)
+
+Application + Dependencies = Image
 .image images/container.png
+: I wanted to add this as kind of a north star. One project I'm going to show you does break this rule... And thats bad. But whatever.
+: Docker containers should be thought of as single processes, not full VMs
+: Bundle your app binary with your deps to create an image.
+
+
 
 * Dockerfile Best Practices
 Building container images.
 .code snippets/large-dockerfile
 Total size: 500MB
+
+: Here is a large dockerfile that compiles and runs the code. Its quite bloated at 500MB. I am guilty of doing this. But my hacks arent running in production.
+
+
 
 * Dockerfile Best Practicesners
 Building container images.
@@ -126,18 +137,18 @@ Remix
 .code snippets/small-dockerfile
 Total size: 4MB
 
+: Here is how it is supposed to be done. Build the binary, then run it in a microscopic container.
 
 * Projects
-: Now for the fun part. I want the rest of the talk to be extremely interactive, so feel free to speak up and ask questions, clarifications, suggest improvements, or share your experiences. Or if enough people want, I can test our luck with the demo gods to run stuff live.
+: Now for the fun part. I want the rest of the talk to be extremely interactive, so feel free to speak up and ask questions, clarifications, suggest improvements, or share your experiences. Or with heavy pursuasion, I can test our luck with the demo gods to run live demos.
 
 * Projects
 - [[projects/domain-bot/domain-bot.slide#2][Domain Availablity Checker]]
-- [[projects/internet-speedtest-docker/internet-speedtest-docker.slide#2][Internet Speedtest Dashboard]]
+- [[projects/internet-speedtest-docker/internet-speedtest-docker.slide#1][Internet Speedtest Dashboard]]
 - [[projects/cloudflare-dyndns/cloudflare-dyndns.slide#2][DynDNS on CloudFlare (in Golang)]]
+- [[projects/life-hacking-docker/life-hacking-docker.slide#2][GoPresent/This slide deck]]
 
 
-
-- GoPresent/This slide deck
 - VIM IDE with Golang Autocompletion
 - Markdown Viewer (Realtime, Github Formatting)
 - Utility debugger/”Toolbox”
@@ -160,7 +171,7 @@ Total size: 4MB
 
 
 * Projects
-*Purpose:*
+*Tasks:*
 *Challenges:*
 *Learnings:*
 

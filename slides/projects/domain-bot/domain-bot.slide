@@ -8,7 +8,7 @@ https://github.com/stevemcquaid
 Know if expiring domains are available for purchase
 .link https://github.com/stevemcquaid/domain-bot
 
-*Function:*
+*Tasks:*
 - Scrape websites for good domains, then check availability and print.
 *Challenges:*
 - No API clients for endpoint
@@ -20,5 +20,5 @@ Know if expiring domains are available for purchase
 - `docker --env-file` is even better
 - Don't argparse in v1, use helper functions
 
-* Speedtest Dashboard
+* Domain Availablity Checker
 .image domain-bot.png
