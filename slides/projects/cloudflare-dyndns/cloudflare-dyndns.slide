@@ -15,8 +15,8 @@ Update DNS record with current public IP address. Scripts built in Golang
 - Discover current public IP.
 - Delete, Update, Create Cloudflare DNS records
 *Challenges:*
-- Golang optimized dockerfile.
-- Move API keys + 
+- Building a Golang optimized dockerfile
+- Dealing with secrets
 *Learnings:*
 - Use Docker's `golang:1.8` public image to build binary. Inject binary into empty image.
 : I wanted to try out an optimized image for this one since previously I was basically compiling at runtime. Which is pretty bad. The makefile ended up being super complicated so I hope to remove that complexity in the future.
