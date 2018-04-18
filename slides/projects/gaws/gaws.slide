@@ -5,7 +5,7 @@ steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
 * GAWS: One line to create an EC2 instance running a docker container
-Oneliner to create an EC2 instance running the default page of a web application.
+Be able to quickly run a docker container exposed to the internet (ec2)
 .link https://github.com/stevemcquaid/gaws
 
 *Tasks:*
@@ -21,8 +21,9 @@ Oneliner to create an EC2 instance running the default page of a web application
 
 
 
+
 * GAWS: One line to create an EC2 instance running a docker container
-Oneliner to create an EC2 instance running the default page of a web application.
+Be able to quickly run a docker container exposed to the internet (ec2)
 .link https://github.com/stevemcquaid/gaws
 
 *Challenges:*
@@ -31,14 +32,20 @@ Oneliner to create an EC2 instance running the default page of a web application
 - Slow iteration on cloud-init scripts
 - AWS API has custom response objects
 - Security Groups
+- You need to setup AWS IAM keys ahead of time, no API to allow UN/PS -> creds.
 
 *Learnings:*
 
 - Argparse is hell
-- AWS API is complicated
 - Do argparsing at the end
 
 : argparse is serious the bane of my existance. Debugging security groups is hell. cloud-init scripts are the definition of slow iteration. Painful.
+: This was a challenge is restraint from adding everything as a CLI flag. Keep it simple, write clean code. Make reasonable assumptions (didnt need vpc or ami_id discovery to accomplish the task)
+
+
+
+
+
 
 * GAWS: One line to create an EC2 instance running a docker container
 
@@ -50,4 +57,6 @@ Oneliner to create an EC2 instance running the default page of a web application
 
 - I deleted my account... sorry
 .image aws.jpg _ 800
+
+
 

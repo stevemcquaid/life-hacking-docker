@@ -4,6 +4,11 @@ Steve McQuaid
 steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
+
+
+
+
+
 * Encryption Utility in Golang
 Provide a mechanism by which secrets are unencrypted during use, but encrypted at rest. 
 .link https://github.com/stevemcquaid/grypt
@@ -12,11 +17,12 @@ Provide a mechanism by which secrets are unencrypted during use, but encrypted a
 
 - Protect secrets stored in public by providing easy-to-use strong encryption
 - Allow other projects/utilities to be able to use this mechanism with minimal effort.
-- Implement Cleanup
-- Improve the UX
+- Codes should be accessible as files to other programs. 
+- Should reencrypt when the program exits.
 
 : Takes the encrypted file and decrypts it temporarily. Leave the docker container running for as long as you want the file to remain in plain text. When you ctrl-c/kill the docker container, grypt will be sent SIGTERM, and before quitting, the file will be read in again, and re-encrypted using the same password, and saved to disk.
 : Should reencrypt if -d flag is given, not reencrypt if -D flag is given
+
 
 
 
@@ -41,6 +47,10 @@ Provide a mechanism by which secrets are unencrypted during use, but encrypted a
 : This led to more projects, and also an embarassing amount of time spent on argparsing. But the good news is that golang's crypto support is pretty great.
 
 
+
+
+
+
 * Grypt Encryption Mechanisms
 - AES-GCM-256/PEM with additionnal datas (to protect PEM headers) instead of Salted CBC-128
 - AEAD Authenticated Encryption Additionnal Data modes (protect the plaintext PEM headers)
@@ -51,5 +61,6 @@ Provide a mechanism by which secrets are unencrypted during use, but encrypted a
 
 * Grypt
 .image grypt.png _ 1000
+
 
 

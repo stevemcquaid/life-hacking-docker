@@ -14,8 +14,34 @@
   - Domain Availablity Checker
 
 ### TODO:
-  - Rendering markdown as pdf
-  - Batch renaming pdfs using metadata for title and author
+  - Rendering markdown as pdf - md2pdf
   - Terminal-based file downloader from dropbox
   - Terminal-based dropbox file structure browser
+  - https://github.com/stevemcquaid/veracrypt
 
+
+### pdf-title-rename
+#### Purpose
+I hoard ebooks. Often times the filename is mislabeled.  Have an easy way to rename large archives of ebooks. Batch renaming pdfs using metadata for title and author
+#### Challenges
+Find the right solution prebuilt. Then Dockerize it. Create bindings to pass in files to docker container.
+#### Learnings/Solutions
+Using someone else's work is awesome!
+
+### pdf-unlocker
+#### Purpose
+Need to sign document, but it requires Adobe Software to edit.
+#### Challenges
+Volume mounting. Bindings to enable future use easily
+#### Learnings/Solutions
+Using someone else's work is awesome! Streamlining the "Dockerization" process helps to save time!
+
+
+### haproxy
+https://github.com/stevemcquaid/haproxy
+#### Purpose
+Be able to redirect traffic at will. (Reverse Proxy)
+#### Challenges
+Forward traffic to a different ip/port, Easily mapping to/from ports in a simple manner
+#### Learnings/Solutions
+Use haproxy in a docker container. Use simple config file

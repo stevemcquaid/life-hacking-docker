@@ -16,6 +16,7 @@ A nice development environment within a container
 
 *Tasks:*
 
+- Be able to have the same full-featured development environment on any machine, anywhere in the world.
 - Docker wrapping vim-go-ide
 
 *Challenges:*
@@ -24,6 +25,12 @@ A nice development environment within a container
 - Balancing speed with features
 - Autocomplete with go + python
 - Learning VIM sucks
+
+: I used to be a nano user (GASP). I both needed to learn vim and the packaging around it (pathogen/vundle). There are some nearly complete prebuilt containers, but I needed to simplify to understand it. 
+: Also, its rare that I use a single language in a single day. I need support for python and golang, and a foundation to add support for anything else that comes up.
+
+
+
 
 
 * VIM IDE with Golang Autocompletion
@@ -35,6 +42,10 @@ A nice development environment within a container
 - VIM is pretty useful
 - Solution works inside and outside container
 - Autocomplete options are sick!
+- Use what works
+- Don't worry about E2E scripts
+
+: Use what works, (ubuntu) rather than a fancy alpine image that you can interact with and learn from. Be agile (make something that works, then iterate): Since this is a high-interaction container, worry less about the glue/wrappers around the container, and focus on getting the container functional. Dogfood. Build the container in the container... use vim to create the dockerfile and vim bindings as a mounted src volume.
 
 
 

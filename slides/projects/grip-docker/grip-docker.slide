@@ -14,17 +14,36 @@ Realtime Github Formatted Markdown Editor in browser
 
 *Challenges:*
 
-- Instantiate grip server
-- Get exposed port from container
-- Figure out how to run grip anywhere
+- Be portable across Mac/Linux. 
+- Handle live refreshes in browser
+- Rate limiting
+- Be accessible from any shell context 
+
+: This was a fun one that I use a bunch now. Port bindings suck. And this was one of my earlier projects so I recently migrated over to my new method of make files calling bash scripts.
+: Also github rate limits their api - which isnt cool
+
+
+
+* Markdown Viewer 
+Realtime Github Formatted Markdown Editor in browser
+.link https://github.com/stevemcquaid/grip-docker
 
 *Learnings:*
 
 - Get container id to use to get port number
 - Use bash scripts to be called from outside directory
+- Make becomes a wrapper
 
-: This was a fun one that I use a bunch now. Port bindings suck. And this was one of my earlier projects so I recently migrated over to my new method of make files calling bash scripts.
+: Its easy to alias shell scripts in bash profile. 
+: Make becomes a wrapper for bash, and a nifty CLI
+
+
+
 
 * Markdown Viewer 
 .image grip-docker.png _ 800
 
+
+
+
+   

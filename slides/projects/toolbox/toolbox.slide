@@ -17,7 +17,9 @@ Docker toolbox for network debugging & utils. Mainly used on CoreOS
 
 *Tasks:*
 
-- Get all the tools I want to use to play nicely together. Wait for stuff to download & install
+- Create a utility debugger for poking around in unfamiliar environments. 
+- All packages must coexist.
+- Waiting for downloads
 
 *Challenges:*
 
@@ -28,8 +30,9 @@ Docker toolbox for network debugging & utils. Mainly used on CoreOS
 - Dependencies are hard.
 - Software takes up space
 
-: Luckily this one was fairly straight forward. I just needed to add any packages I want. I'd like to do more in the future. Such as mounting the correct volumes that coreos does with toolbox to give me full host access. Also I could probably avoid installing manuals & other bloat
-
+: Luckily this one was fairly straight forward. I just needed to add any packages I want. I'd like to do more in the future. Such as mounting the correct volumes that coreos does with toolbox to give me full host access.
+: Also I could probably avoid installing manuals & other bloat
+: Its not intended for production so there is no need to do oneliners.  Keep a dockerfile cache active for these massive containers.
 
 
 

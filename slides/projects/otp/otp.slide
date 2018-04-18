@@ -9,7 +9,7 @@ https://github.com/stevemcquaid
 
 
 * 2FA/Gauth One Time Passcodes
-One time password generator for CLI
+Be able to backup/access/use 2FA codes on a computer
 .link https://github.com/stevemcquaid/gauth
 .link https://github.com/stevemcquaid/otp
 .link https://github.com/stevemcquaid/veracrypt
@@ -28,6 +28,10 @@ One time password generator for CLI
 : I first got gauth to work, and modified the output to my liking. Then I needed to securely handle the inputs. So I built another project to handle the veracrypt CLI and create new volumes as needed. Then I hooked it up into the otp project. Then I started looking at ways to reduce the time the config file spent unencrypted, so I would need a custom in-memory solution. And one that would be able to hook into the docker SIGTERM event. Ill discuss the SIGTERM pattern later as well as the grypt decryption utility - in golang.
 
 
+
+
+
+
 * 2FA/Gauth One Time Passcodes
 
 *Challenges:*
@@ -44,7 +48,7 @@ One time password generator for CLI
 - Diving deeper into encryption at rest / minimizing time unencrypted, even if in memory: grypt + sigterm
 
 : But, basically this was a project synthesizing a few premade projects and an exercise in creating the end to end userstory. I wanted to be able to get 2FA codes on my laptop terminal, in one command, quickly.
-
+: Veracrypt allows in-memory storage of sensitive information with a common mounting point. Allows program to treat configs like regular files, but be securely stored at rest.
 
 
 * 2FA/Gauth One Time Passcodes
