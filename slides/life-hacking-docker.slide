@@ -4,7 +4,7 @@ Steve McQuaid
 steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
-: I am Steve McQuaid. I am a senior software engineer specializing in infrastructure engineering, specifically Kubernetes. Last year my wife and I relocated from the San Francisco Bay Area up to Carmel. More recently, I am actually taking the time to find the right new opportunity. So if you enjoy todays talk, tell your boss!
+: I am Steve McQuaid. I am a senior software engineer specializing in infrastructure engineering, specifically Kubernetes. I've worked for a few San Francisco Bay Area companies including Apple, GoDaddy, as well as small startups. Last year my wife and I relocated from the Bay Area up to Carmel. More recently, I ended up leaving that startup and am actually taking the time to find the right new opportunity. So if you enjoy todays talk, tell your boss!
 : And when I am not coding I enjoy whisky, running, golfing, and DJing. 
 
 : Like many of you, I enjoy looking for ways to make my life easier + more efficient 
@@ -17,9 +17,10 @@ https://github.com/stevemcquaid
 - Discuss Projects
 .image images/swarm.gif _ 250
 
+: What are you going to get out of the talk today?
 : Some rules that I follow when building hacks
-: The challenges and solutions that I found to them
-: Discuss various projects
+: The challenges and solutions that I found after much exploration
+: Discuss various projects themselves
 
 
 * Why Containers?
@@ -29,7 +30,7 @@ https://github.com/stevemcquaid
 .image images/docker-bubbles.png _ 500
 : Why would we want to dockerize and automate things?
 : We want to be able to quickly do something that was previously laborious.
-: Building things is enjoyable.
+: Want to have fun! Building things is enjoyable.
 : Why not exercise our abilities and creativity
 
 
@@ -41,9 +42,9 @@ https://github.com/stevemcquaid
 .image images/dockerize.jpg _ 400
 : The main points I try to keep in mind while developing small projects for utility use are: 
 : Portability - We want to be able to run anywhere - on a new machine easily. 
-: Easily understood via highly commented code + documentation. Maintained by me. Make life easy. Favor legibility + code clarity   vs   efficiency + elegant oneliners. 
+: Make life easy. highly commented code + documentation is easily understood. 
 : Assume machines have docker & bash (or similar enough that we can patch things). Recently using make as a CLI for help commands. Avoiding docker flags.
-: Finally, goal = if we need to change something in the future, it should be easy to do so.
+
 
 
 * Requirements
@@ -52,10 +53,12 @@ https://github.com/stevemcquaid
 - Portable
 - Modifiable
 - Clear >= Concise Logic
-.image images/docker-container.jpg _ 300
+.image images/docker-windows.png _ 250
 : Given those principles, I use this mental checklist to make sure Im not creating a hassle for future me. 
 : From an Infrastructure perspective, challenge = bootstrapping/dependency hell
 : Docker specifically provides us with portability, and therefore you should be able to create something immediately functional out of the box.
+: Goal = if we need to change something in the future, it should be easy to do so.
+: Maintained by me. Favor legibility + code clarity   vs   efficiency + elegant oneliners. 
 
 
 * Basic Process
@@ -64,7 +67,8 @@ https://github.com/stevemcquaid
 - Convert to Dockerfile
 - Wrap with utility scripts
 - Create Documentation
-.image images/docker-windows.png _ 250
+.image images/docker-container.jpg _ 300
+: Development process
 : I usually begin by writing the code to do the task that I want
 : Then if the libraries I'm using need some exotic underlying libs, like imagemagik, or some C extentions, I will get a shell in ubuntu container and install those.
 : Put the commands I just ran manually to create the image, into the Dockerfile
@@ -74,7 +78,7 @@ https://github.com/stevemcquaid
 
 * Projects
 
-: We will have interactive discussion in a few minutes since the life-hacks are probably what you are all interested in. I do want to first discuss some of the learnings that can apply to your projects.
+: We will have interactive discussion in a few minutes since the life-hacks are probably what you are all interested in. I do want to first discuss some of the learnings I've found that apply across every project that I've done. Hopefully that can apply to your projects.
 
 
 * Learnings
