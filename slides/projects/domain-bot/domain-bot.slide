@@ -4,21 +4,57 @@ Steve McQuaid
 steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
+
+
+
+
+
+
 * Domain Availablity Checker
 Know if expiring domains are available for purchase
 .link https://github.com/stevemcquaid/domain-bot
 
 *Tasks:*
+
 - Scrape websites for good domains, then check availability and print.
+
 *Challenges:*
+
 - No API clients for endpoint
 - Python global variables have local scope
 - Parallel API Requests
 - Committing creds
+: This was basic API integration work
+: I forgot that python function scope can fuck with everything. even global variables.
+: Then I had to also stop being a n00b and not commit creds in git anymore.
+
+
+
+
+
+* Domain Availablity Checker
+Know if expiring domains are available for purchase
+.link https://github.com/stevemcquaid/domain-bot
+
 *Learnings:*
+
 - `.dockerignore` is amazing
 - `docker --env-file` is even better
 - Don't argparse in v1, use helper functions
+: To help those cred commiters among us, try using .gitignore and .dockerignore files. They help a lot.
+: Also if you use docker --env-file from the beginning, you can just use os.getenv() instead.
+: Anyway, dont argparge from the start, just hardcode in helper functions to get env vars.
+
+
+
+
+
+
+
+
+
+
+
 
 * Domain Availablity Checker
 .image domain-bot.png

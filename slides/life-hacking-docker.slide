@@ -15,6 +15,8 @@ https://github.com/stevemcquaid
 - Personal Project Philosophy
 - Learnings
 - Discuss Projects
+.image images/swarm.gif _ 250
+
 : Some rules that I follow when building hacks
 : The challenges and solutions that I found to them
 : Discuss various projects
@@ -62,7 +64,7 @@ https://github.com/stevemcquaid
 - Convert to Dockerfile
 - Wrap with utility scripts
 - Create Documentation
-.image images/ubuntu.svg _ 200
+.image images/docker-windows.png _ 250
 : I usually begin by writing the code to do the task that I want
 : Then if the libraries I'm using need some exotic underlying libs, like imagemagik, or some C extentions, I will get a shell in ubuntu container and install those.
 : Put the commands I just ran manually to create the image, into the Dockerfile
@@ -75,13 +77,14 @@ https://github.com/stevemcquaid
 : We will have interactive discussion in a few minutes since the life-hacks are probably what you are all interested in. I do want to first discuss some of the learnings that can apply to your projects.
 
 
-* Learnings - Part 1
+* Learnings
 - Iteration Time == fn(Compilation Time)
 - Optimize Containers in Production
 - Reuse patterns that work well
 - Starter Code
 - Make + Bash Scripts 
 - Allow common interfaces to cli tools written in different languages on different platforms. Can include in bash_profile easily.
+.image images/box-microservices.jpg _ 300
 : Iteration is a function of compilation time
 : So either have easy way to iterate, or install the deps locally, then convert to dockerfile.
 : In python this means caching your dependencies to speed up builds
@@ -94,13 +97,14 @@ https://github.com/stevemcquaid
 : Also, one pattern I use really helps me to have easy access from terminal on my computer. I use `make run` to exec a bash script in the vast majority of my projects. This makes it really easy to make a `bash_profile` alias to almost any project.
 
 
-* Learnings - Part 2
+* More Learnings
 - Comment Code
 - Document everything via README.md + `make help` 
 - Functional: `docker pull; docker run`
 - Prebuilt argparse framework saves time
 - Prebuilt pattern for sensitive information saves time
 - Encryption is good
+.image images/encrypt-file.png _ 200
 : Comments are good
 : Documentation is good
 : Try and leave your pushed docker images in functional condition. It makes life much better.
@@ -113,7 +117,8 @@ https://github.com/stevemcquaid
 Unix processes not lightweight Virtual Machines
 
 Application + Dependencies = Image
-.image images/container.png
+.image images/docker-fuck-no.jpg _ 350
+
 : I wanted to add this as kind of a north star. One project I'm going to show you does break this rule... And thats bad. But whatever.
 : Docker containers should be thought of as single processes, not full VMs
 : Bundle your app binary with your deps to create an image.
@@ -123,21 +128,23 @@ Application + Dependencies = Image
 * Dockerfile Best Practices
 Building container images.
 .code snippets/large-dockerfile
-Total size: 500MB
-
+.caption Total size: 500MB
+.image images/docker-fail.png _ 100
 : Here is a large dockerfile that compiles and runs the code. Its quite bloated at 500MB. I am guilty of doing this. But my hacks arent running in production.
 
 
 
-* Dockerfile Best Practicesners
-Building container images.
+* Dockerfile Best Practices
+Building container images
+
 - Build applications in a dedicated build container or CI
 - Ship build artifacts, not build environments
-Remix
-.code snippets/small-dockerfile
-Total size: 4MB
 
-: Here is how it is supposed to be done. Build the binary, then run it in a microscopic container.
+.code snippets/small-dockerfile
+.caption Total size: 4MB
+.image images/docker-slim.jpg _ 120
+: Here is how it is supposed to be done. Build the binary, then run it in a microscopic container. Legit 100x reduction in size.
+: Does anyone get the joke here?  Its a SLIM image... a SLIM DOCKER image.. SLIM DOCKER... DOCKER SLIM... THE PANTS ARE DOCKER SLIM FIT
 
 * Projects
 : Now for the fun part. I want the rest of the talk to be extremely interactive, so feel free to speak up and ask questions, clarifications, suggest improvements, or share your experiences. Or with heavy pursuasion, I can test our luck with the demo gods to run live demos.
@@ -147,9 +154,9 @@ Total size: 4MB
 - [[projects/internet-speedtest-docker/internet-speedtest-docker.slide#1][Internet Speedtest Dashboard]]
 - [[projects/cloudflare-dyndns/cloudflare-dyndns.slide#2][DynDNS on CloudFlare (in Golang)]]
 - [[projects/life-hacking-docker/life-hacking-docker.slide#2][GoPresent/This slide deck]]
+- [[projects/vim-ide/vim-ide.slide#2][VIM IDE with Golang Autocompletion]]
 
 
-- VIM IDE with Golang Autocompletion
 - Markdown Viewer (Realtime, Github Formatting)
 - Utility debugger/”Toolbox”
 - 2FA/Gauth One Time Passcodes
@@ -157,7 +164,6 @@ Total size: 4MB
 - Config File In-Memory Decryption Utility
 - Code Pattern to Cleanup after SIGTERM
 - Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
-- Local Reverse Proxy/Port Redirection
 
  
 

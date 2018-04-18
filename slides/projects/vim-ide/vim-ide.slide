@@ -1,0 +1,54 @@
+VIM IDE with Golang Autocompletion
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+
+
+
+
+
+
+* VIM IDE with Golang Autocompletion
+A nice development environment within a container
+.link https://github.com/stevemcquaid/vim-ide
+
+*Tasks:*
+
+- Docker wrapping vim-go-ide
+
+*Challenges:*
+
+- Getting vim files to sync correctly + terminal color profiles
+- Balancing speed with features
+- Autocomplete with go + python
+- Learning VIM sucks
+
+
+* VIM IDE with Golang Autocompletion
+A nice development environment within a container
+.link https://github.com/stevemcquaid/vim-ide
+
+*Learnings:*
+
+- VIM is pretty useful
+- Solution works inside and outside container
+- Autocomplete options are sick!
+
+
+
+
+
+
+
+
+
+* docker run -it -v `pwd`:/src --rm stevemcquaid/vim-ide:v2.5
+.image vim-ide.png _ 800
+
+
+
+
+* docker run -ti -v `pwd`:/project/ --rm rr32btg/vim-go-ide
+.image vim-go-ide.png _ 800

@@ -1,26 +1,39 @@
-DynDNS on CloudFlare (in Golang)
-
-
-Internet Speedtest Dashboard
+DynDNS on CloudFlare
 
 Steve McQuaid
 steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
-* DynDNS on CloudFlare (in Golang)
+* DynDNS on CloudFlare
 Update DNS record with current public IP address. Scripts built in Golang
 .link https://github.com/stevemcquaid/cloudflare-dyndns github.com/stevemcquaid/cloudflare-dyndns 
 
+
+
+
+
 *Tasks:*
+
 - Discover current public IP.
 - Delete, Update, Create Cloudflare DNS records
+
 *Challenges:*
+
 - Building a Golang optimized dockerfile
 - Dealing with secrets
-*Learnings:*
-- Use `golang:1.8` public image to build binary, then inject binary into empty image
-
 : I wanted to try out an optimized image for this one since previously I was  compiling in the same image as I ship. Which is pretty bad. The makefile ended up being super complicated so I hope to remove that complexity in the future.
 
-* DynDNS on CloudFlare (in Golang)
+*Learnings:*
+
+- Use `golang:1.8` public image to build binary, then inject binary into empty image
+: self explanitory
+
+
+
+
+
+
+
+
+* DynDNS on CloudFlare
 .image cloudflare-dyndns.png _ 800

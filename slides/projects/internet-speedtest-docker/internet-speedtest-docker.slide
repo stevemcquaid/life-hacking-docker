@@ -4,25 +4,62 @@ Steve McQuaid
 steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
+
+
+
+
+
+
 * Internet Speedtest Dashboard
 .image compose-hacker.jpg _ 400
+
+
+
+
+
+
+
 
 * Internet Speedtest Dashboard
 Monitor the real-time speed from ISP. Graph it to know when stuff breaks and when speeds slow.
 .link https://github.com/stevemcquaid/internet-speedtest-docker github.com/stevemcquaid/internet-speedtest-docker
 
 *Tasks:*
+
 - Add kubernetes deployment objects + figure out port routing
+
 *Challenges:*
+
 - Converting compose to k8s resource file
 - Running persistantly on local network
 - Exposing the docker port behind minikube
+: Eventually Ill replace minikube with regular k8s cluster
+: Originally I had to use haproxy to redirect the port, but now it supports ingress so things are looking up.
+
+
+
+
+
+
+
+
+* Internet Speedtest Dashboard
+Monitor the real-time speed from ISP. Graph it to know when stuff breaks and when speeds slow.
+.link https://github.com/stevemcquaid/internet-speedtest-docker github.com/stevemcquaid/internet-speedtest-docker
+
 *Learnings:*
+
 - Have templates
 - Have a dev machine for project server
 - Use reverse proxy to redirect to minikube port
+: In the meantime I get nice, nasty port redirections :/ But minikube is getting better. 
 
-: Eventually Ill replace minikube with regular k8s cluster
+
+
+
+
+
+
 
 * Internet Dashboard
 .image internet-speedtest-docker.png _ 800

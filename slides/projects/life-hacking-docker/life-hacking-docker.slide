@@ -4,22 +4,49 @@ Steve McQuaid
 steve@stevemcquaid.com
 https://github.com/stevemcquaid
 
+
+
+
+
+
+* GoPresent/This slide deck
+.image deeper.jpg _ 800
+
+
+
+
+
+
 * GoPresent/This slide deck
 Be able to build slides (with speaker notes) without powerpoint. Dockerize everything.
 .link https://github.com/stevemcquaid/life-hacking-docker
 
 *Tasks:*
+
 - Stumble across the `go present` tool. Use tooling from other repos
+
 *Challenges:*
+
 - Finding `go present` tool.
 - Functional paths
 - Learning the syntax
 - Getting around bugs
+
+* GoPresent/This slide deck
+Be able to build slides (with speaker notes) without powerpoint. Dockerize everything.
+.link https://github.com/stevemcquaid/life-hacking-docker
+: This was overall pretty smooth. Just some weirdness that I might fix and contribute back upstream.
+
 *Learnings:*
+
 - The golang ecosystem is AWESOME!
 - Its really nice to use pre-built stuff (gopresent + my own dockerfiles + scripts)
+: The golang ecosystem is AMAZING!
 
-: This was overall pretty smooth. Just some weirdness that I might fix and contribute back upstream.
+
+
+
+
 
 * GoPresent/This slide deck
 .image gopresent.png _ 800
