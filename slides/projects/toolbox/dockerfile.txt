@@ -1,0 +1,24 @@
+FROM ubuntu:16.04
+ENV VERSION=0.1.0
+
+RUN apt-get update && apt-get upgrade -y
+...
+
+RUN apt install -y \
+    apache2-utils \
+    curl \
+    ...
+    dnsutils \
+    git \
+    iptables \
+    iputils-ping \
+    mtr \
+    nano \
+    netcat \
+    net-tools \
+    nmap \
+    tcpdump \
+    ...
+    vim \
+    wget
+

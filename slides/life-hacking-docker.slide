@@ -155,15 +155,19 @@ Building container images
 - [[projects/cloudflare-dyndns/cloudflare-dyndns.slide#2][DynDNS on CloudFlare (in Golang)]]
 - [[projects/life-hacking-docker/life-hacking-docker.slide#2][GoPresent/This slide deck]]
 - [[projects/vim-ide/vim-ide.slide#2][VIM IDE with Golang Autocompletion]]
+- [[projects/grip-docker/grip-docker.slide#2][Markdown Viewer (Realtime, Github Formatting)]]
+- [[projects/toolbox/toolbox.slide#2][Utility debugger/”Toolbox”]]
+- [[projects/otp/otp.slide#2][2FA/Gauth One Time Passcodes]]
+- [[projects/grypt/grypt.slide#2][Encryption Utility in Golang]]
 
 
-- Markdown Viewer (Realtime, Github Formatting)
-- Utility debugger/”Toolbox”
-- 2FA/Gauth One Time Passcodes
-- Unlock Protected PDF (avoid forcibly using Adobe Software)
-- Config File In-Memory Decryption Utility
 - Code Pattern to Cleanup after SIGTERM
 - Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
+- gaws
+
+- Unlock Protected PDF (avoid forcibly using Adobe Software)
+- md2pdf?
+- https://github.com/stevemcquaid/haproxy
 
  
 

@@ -1,0 +1,30 @@
+Markdown Viewer 
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+* Markdown Viewer 
+Realtime Github Formatted Markdown Editor in browser
+.link https://github.com/stevemcquaid/grip-docker
+
+*Tasks:*
+
+- Run grip server inside docker container. Integrate startup scripts into bash_profile
+
+*Challenges:*
+
+- Instantiate grip server
+- Get exposed port from container
+- Figure out how to run grip anywhere
+
+*Learnings:*
+
+- Get container id to use to get port number
+- Use bash scripts to be called from outside directory
+
+: This was a fun one that I use a bunch now. Port bindings suck. And this was one of my earlier projects so I recently migrated over to my new method of make files calling bash scripts.
+
+* Markdown Viewer 
+.image grip-docker.png _ 800
+

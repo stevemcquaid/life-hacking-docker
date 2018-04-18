@@ -1,0 +1,48 @@
+Encryption Utility in Golang
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+* Encryption Utility in Golang
+Provide a mechanism by which secrets are unencrypted during use, but encrypted at rest. 
+.link https://github.com/stevemcquaid/grypt
+
+*Tasks:*
+
+- Protect secrets stored in public by providing easy-to-use strong encryption
+- Allow other projects/utilities to be able to use this mechanism with minimal effort.
+- Implement Cleanup
+- Improve the UX
+
+: Takes the encrypted file and decrypts it temporarily. Leave the docker container running for as long as you want the file to remain in plain text. When you ctrl-c/kill the docker container, grypt will be sent SIGTERM, and before quitting, the file will be read in again, and re-encrypted using the same password, and saved to disk.
+: Should reencrypt if -d flag is given, not reencrypt if -D flag is given
+
+
+
+
+
+* Encryption Utility in Golang
+Provide a mechanism by which secrets are unencrypted during use, but encrypted at rest. 
+.link https://github.com/stevemcquaid/grypt
+
+
+*Challenges:*
+
+- Try to remove risks by not implementing crypto
+- Learn about the SIGTERM handler
+- Arg parse to get my desired UX
+
+*Learnings:*
+
+- Golang has pretty good crypto support
+- Created SIGTERM handler golang project
+
+: This led to more projects, and also an embarassing amount of time spent on argparsing. But the good news is that golang's crypto support is pretty great.
+
+
+
+* Test
+.image grypt.png _ 1000
+
+

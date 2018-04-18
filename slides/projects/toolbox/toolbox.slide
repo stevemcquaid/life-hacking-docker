@@ -1,0 +1,41 @@
+Toolbox
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+
+
+
+
+
+
+
+* Toolbox
+Docker toolbox for network debugging & utils. Mainly used on CoreOS
+.link https://github.com/stevemcquaid/toolbox
+
+*Tasks:*
+
+- Get all the tools I want to use to play nicely together. Wait for stuff to download & install
+
+*Challenges:*
+
+- Figuring out what packages are named
+
+*Learnings:*
+
+- Dependencies are hard.
+- Software takes up space
+
+: Luckily this one was fairly straight forward. I just needed to add any packages I want. I'd like to do more in the future. Such as mounting the correct volumes that coreos does with toolbox to give me full host access. Also I could probably avoid installing manuals & other bloat
+
+
+
+
+
+
+
+* Toolbox
+.code dockerfile.txt
+

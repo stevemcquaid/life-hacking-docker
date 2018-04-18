@@ -1,0 +1,52 @@
+2FA/Gauth One Time Passcodes
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+
+
+
+
+* 2FA/Gauth One Time Passcodes
+One time password generator for CLI
+.link https://github.com/stevemcquaid/gauth
+.link https://github.com/stevemcquaid/otp
+.link https://github.com/stevemcquaid/veracrypt
+
+
+*Tasks:*
+
+- Add dockerfile + build scripts
+- Add search feature to limit number of codes shown on terminal
+- Fix Formatting
+- Encrypt the config file for gauth
+- Make usage seamless
+
+
+: This was a gateway project. I originally wanted to just get 2FA codes on my laptop terminal. I ended up creating more patterns and diving into other projects to be able to handle sensitive information safely and properly.
+: I first got gauth to work, and modified the output to my liking. Then I needed to securely handle the inputs. So I built another project to handle the veracrypt CLI and create new volumes as needed. Then I hooked it up into the otp project. Then I started looking at ways to reduce the time the config file spent unencrypted, so I would need a custom in-memory solution. And one that would be able to hook into the docker SIGTERM event. Ill discuss the SIGTERM pattern later as well as the grypt decryption utility - in golang.
+
+
+* 2FA/Gauth One Time Passcodes
+
+*Challenges:*
+
+- Find a way to not modify utility that reads a config file
+- Find a way to encrypt config file
+- Encryption of Two Factor Auth Root Keys
+- Attempting to dockerize Veracrypt (and failing)
+- Learning the veracrypt CLI (undocumented)
+
+*Learnings:*
+
+- Veracrypt is now a dependency
+- Diving deeper into encryption at rest / minimizing time unencrypted, even if in memory: grypt + sigterm
+
+: But, basically this was a project synthesizing a few premade projects and an exercise in creating the end to end userstory. I wanted to be able to get 2FA codes on my laptop terminal, in one command, quickly.
+
+
+
+* 2FA/Gauth One Time Passcodes
+.image otp.png _ 700
+
