@@ -41,8 +41,15 @@ Provide a mechanism by which secrets are unencrypted during use, but encrypted a
 : This led to more projects, and also an embarassing amount of time spent on argparsing. But the good news is that golang's crypto support is pretty great.
 
 
+* Grypt Encryption Mechanisms
+- AES-GCM-256/PEM with additionnal datas (to protect PEM headers) instead of Salted CBC-128
+- AEAD Authenticated Encryption Additionnal Data modes (protect the plaintext PEM headers)
+- AES-GCM-256 authenticated encryption mode
+- 16K rounds PBKDF2 key derivation function with SHA3-256
+- Crypto PRNG
+: Im not a crypto expert but these are what grypt implements
 
-* Test
+* Grypt
 .image grypt.png _ 1000
 
 
