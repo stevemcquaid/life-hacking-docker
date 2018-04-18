@@ -1,0 +1,51 @@
+Sigterm
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+* Sigterm
+This is an example repo on how to do cleanup during the time between the docker stop command is sent to a container and the actual exit of the process
+.link https://github.com/stevemcquaid/sigterm
+
+*Tasks:*
+
+- Create a SIGTERM handler
+- Do work before the process dies
+- Package it up
+
+*Challenges:*
+
+- Figure out a way to be notified when the process is about to be killed
+- Find the right way to handle the notification
+- Limited time before forced kill
+
+: This was a discovery to see if it was even possible to recieve the termination signal and act upon it. Overall it was a success. It helped so much to already have golang dockerfiles and scripts ready to go, so I could focus on coding.
+
+
+
+
+
+* Sigterm
+This is an example repo on how to do cleanup during the time between the docker stop command is sent to a container and the actual exit of the process
+.link https://github.com/stevemcquaid/sigterm
+
+
+*Learnings:*
+
+- Know that you can't do much, be efficient with allowed time
+- Pre-made scripts are awesome
+- Golang is cool
+
+: The actual code is pretty easy: 
+
+
+
+
+* Sigterm Code
+.code sigterm.txt
+
+
+* Sigterm Example
+.image sigterm.png _ 700
+

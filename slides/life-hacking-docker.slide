@@ -159,9 +159,8 @@ Building container images
 - [[projects/toolbox/toolbox.slide#2][Utility debugger/”Toolbox”]]
 - [[projects/otp/otp.slide#2][2FA/Gauth One Time Passcodes]]
 - [[projects/grypt/grypt.slide#2][Encryption Utility in Golang]]
+- [[projects/sigterm/sigterm.slide#2][SIGTERM Cleanup: Pattern in Golang]]
 
-
-- Code Pattern to Cleanup after SIGTERM
 - Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
 - gaws
 
