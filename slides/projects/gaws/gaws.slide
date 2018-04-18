@@ -1,0 +1,53 @@
+GAWS: One line to create an EC2 instance running a docker container
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+* GAWS: One line to create an EC2 instance running a docker container
+Oneliner to create an EC2 instance running the default page of a web application.
+.link https://github.com/stevemcquaid/gaws
+
+*Tasks:*
+
+- Figure out the AWS API
+- What arguments are needed
+- Bash script to run docker container on boot
+- Dockerize
+
+: I decided to develop everything in golang to explore AWS's golang SDK. While the route of provisioning everything using Ansible or Terraform would have been easier, a dockerized golang package would allow me the flexibility in the future to automate or adjust precise elements of the deployment should I want to expand on the project or, for example, run it under kubernetes.
+
+
+
+
+
+* GAWS: One line to create an EC2 instance running a docker container
+Oneliner to create an EC2 instance running the default page of a web application.
+.link https://github.com/stevemcquaid/gaws
+
+*Challenges:*
+
+- Argparse is hell
+- Slow iteration on cloud-init scripts
+- AWS API has custom response objects
+- Security Groups
+
+*Learnings:*
+
+- Argparse is hell
+- AWS API is complicated
+- Do argparsing at the end
+
+: argparse is serious the bane of my existance. Debugging security groups is hell. cloud-init scripts are the definition of slow iteration. Painful.
+
+* GAWS: One line to create an EC2 instance running a docker container
+
+.caption My One-Liner:
+.code oneline.txt
+
+
+* GAWS: One line to create an EC2 instance running a docker container
+
+- I deleted my account... sorry
+.image aws.jpg _ 800
+

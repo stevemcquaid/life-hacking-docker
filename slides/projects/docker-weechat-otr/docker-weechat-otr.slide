@@ -1,0 +1,51 @@
+Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
+
+Steve McQuaid
+steve@stevemcquaid.com
+https://github.com/stevemcquaid
+
+
+
+
+
+* docker-weechat-otr
+Be able to chat on any chat platform from the terminal.
+
+*Tasks:*
+
+- Dockerize weechat-otr
+- Learn bitlebee, weechat.
+- Install all the plugins
+: The real magic here was created by someone else: the IRC client: weechat. I just needed to dockerize it and install bitlebee to add additional chat platform support
+
+
+
+
+
+* docker-weechat-otr
+Be able to chat on any chat platform from the terminal.
+
+*Challenges:*
+
+- Dependency hell
+- Learning weechat commands
+- Setup of accounts/config file & state managements
+- Slack API is SLOW. IRC/XMPP is so much better :'(
+
+*Learnings:*
+
+- Break out apt installs
+- Encrypt config files
+- Build own documentation if it would take too long to automate your own solution.
+
+: I had a prebuilt weechat, and weechat with otr messaging. I just had to install everything and make it work. Which was quite difficult. Unfortunately with so many messengers switching protocols, bitlebee takes some time to catch up and build out support. Also, I've switched most of my friends over to signal private messenger, so I've not used this in awhile. But we are making progress with signal-cli and weechat-signal integrations. So I am hopeful.
+: Slack should be ashamed for disconinuing IRX/XMPP support!
+
+
+
+
+* docker-weechat-otr
+.image weechat.png _ 900
+
+
+

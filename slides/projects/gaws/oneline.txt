@@ -1,0 +1,15 @@
+docker run -it --rm stevemcquaid/gaws:1.0 \
+    gaws \
+    --amiID="<my_amiid_for_amazon_linux> \
+    --cidr="0.0.0.0/0" \
+    --container="stevemcquaid/python-flask-docker-hello-world:latest" \
+    --instanceType="t2.micro" \
+    --instanceTagKey="Name" \
+    --instanceTagValue="gaws" \
+    --port=80 \
+    --securityGroupName="gaws-SG" \
+    --securityGroupDesc="Allow access to my docker container" \
+    --vpcID="" \
+    --AWS_REGION=<my_aws_region> \
+    --AWS_ACCESS_KEY_ID="<my_aws_access_key>" \
+    --AWS_SECRET_ACCESS_KEY="<my_aws_secret_access_key>"

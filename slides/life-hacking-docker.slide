@@ -160,32 +160,33 @@ Building container images
 - [[projects/otp/otp.slide#2][2FA/Gauth One Time Passcodes]]
 - [[projects/grypt/grypt.slide#2][Encryption Utility in Golang]]
 - [[projects/sigterm/sigterm.slide#2][SIGTERM Cleanup: Pattern in Golang]]
-- [[projects/gaws/gaws.slide#2][gaws]]
+- [[projects/gaws/gaws.slide#2][Golang AWS Docker OneLiner]]
+- [[projects/docker-weechat-otr/docker-weechat-otr.slide#2][Chat in Terminal with: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter ]]
 
-
-- gaws
-- Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
-
-
-- Unlock Protected PDF (avoid forcibly using Adobe Software)
-- md2pdf?
-- https://github.com/stevemcquaid/haproxy
-https://github.com/stevemcquaid/veracrypt
+: Unlock Protected PDF (avoid forcibly using Adobe Software)
+: md2pdf?
+: https://github.com/stevemcquaid/haproxy
+: https://github.com/stevemcquaid/veracrypt
  
 
 
 
 
 
-
-
-
-
-
-* Projects
-*Tasks:*
-*Challenges:*
-*Learnings:*
+### weechat-docker-otr
+    #### Purpose
+    Be able to access all chat platforms from the command line. Be able to communicate with only a terminal
+    #### Challenges
+    Dependency hell. Learning weechat commands. Setup of accounts/config file & state managements
+    #### Learnings/Solutions
+    Break out apt installs. Encrypt config files. Built own documentation if it would take too long to automate your own solution.
+### internet-speedtest-docker
+    #### Purpose
+    Monitor the real-time speed from ISP. Graph it to know when stuff breaks and when speeds slow.
+    #### Challenges
+    Converting compose to k8s. Running persistantly somewhere in local network. Exposing the docker port beyond minikube
+    #### Learnings/Solutions
+    Have templates. Have a dev machine run kubernetes. Use haproxy in docker container to redirect to the minikube port
 
 ### haproxy
     #### Purpose
