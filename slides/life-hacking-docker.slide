@@ -133,21 +133,20 @@ Total size: 4MB
 * Projects
 - [[projects/domain-bot/domain-bot.slide#2][Domain Availablity Checker]]
 - [[projects/internet-speedtest-docker/internet-speedtest-docker.slide#2][Internet Speedtest Dashboard]]
+- [[projects/cloudflare-dyndns/cloudflare-dyndns.slide#2][DynDNS on CloudFlare (in Golang)]]
 
 
 
-- Markdown Viewer (Realtime, Github Formatting)
-- Local Reverse Proxy/Port Redirection
-- Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
-- Utility debugger/”Toolbox”
-- Unlock Protected PDF (avoid forcibly using Adobe Software)
-- DynDNS on CloudFlare (in Golang)
-- 2FA/Gauth One Time Passcodes
+- GoPresent/This slide deck
 - VIM IDE with Golang Autocompletion
+- Markdown Viewer (Realtime, Github Formatting)
+- Utility debugger/”Toolbox”
+- 2FA/Gauth One Time Passcodes
+- Unlock Protected PDF (avoid forcibly using Adobe Software)
 - Config File In-Memory Decryption Utility
 - Code Pattern to Cleanup after SIGTERM
-- DynDNS on CloudFlare (in Golang)
-- GoPresent/This slide deck
+- Terminal-based chat combining: Slack, Hangouts, Facebook Chat, IRC, XMPP, Twitter.
+- Local Reverse Proxy/Port Redirection
 
  
 
