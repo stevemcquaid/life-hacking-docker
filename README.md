@@ -14,3 +14,8 @@ As a software engineer I look for solutions to make my life easier.  So much of 
   * kubernetes
   * python
   * fun
+
+# View the slides:
+ - `cd slides`
+ - `make help`
+ - `make run`
